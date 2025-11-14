@@ -1,9 +1,9 @@
-Credit Default Prediction Model (Logistic Regression in R)
+# Credit Default Prediction Model (Logistic Regression in R)
 
 This repository contains an end-to-end credit default prediction project developed in R.
 The goal is to build a baseline model that predicts the probability that a customer will default on credit, helping financial institutions reduce risk and make informed lending decisions.
 
-Project Structure
+# Project Structure
 credit-default-prediction-R/
 │
 ├── scripts/
@@ -21,7 +21,7 @@ credit-default-prediction-R/
 └── README.md
 
 
-🧠 Project Overview
+# Project Overview
 
 Financial institutions face significant losses when customers default on loans.
 This project builds a logistic regression model to estimate default probability and classify customers as:
@@ -40,7 +40,7 @@ The project includes:
 ✔ Scoring new applicants
 ✔ Visualizations
 
-Technologies Used
+# Technologies Used
 | Category       | Tools            |
 | -------------- | ---------------- |
 | Language       | **R**            |
@@ -50,7 +50,7 @@ Technologies Used
 | Visualization  | ggplot2          |
 
 
-📊 Dataset
+# Dataset
 The dataset includes financial and demographic information such as:
 
 Age
@@ -90,7 +90,7 @@ Data Preprocessing Summary
 | Train-test split             | 80/20                    |
 
 
-Modeling Approach
+# Modeling Approach
 
 A logistic regression classifier was built using:
 
@@ -111,7 +111,7 @@ ROC Curve
 AUC Score
 
 
-Scoring New Applicants
+# Scoring New Applicants
 
 A second dataset (CreditRisk_Verify.csv) was used to score new customers:
 
@@ -123,7 +123,7 @@ Else → Low Risk
 
 This simulates real-world credit approval workflows.
 
-🔍 Key Insights
+# Key Insights
 
 Payment history and income were the strongest predictors of default
 
@@ -133,7 +133,7 @@ AUC score indicates robust separability between good vs. bad clients
 
 Adjusting the probability threshold can optimize risk sensitivity
 
-🚀 Future Enhancements
+# Future Enhancements
 
 Potential improvements:
 
