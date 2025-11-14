@@ -117,3 +117,53 @@ summary_table <- data.frame(
 
 summary_table <- summary_table[order(-abs(summary_table$OddsRatio)), ]
 print(summary_table)
+
+
+# Save ROC Curve
+png("outputs/plots/roc_curve.png", width = 800, height = 600)
+plot(roc_obj, main = "ROC Curve - Logistic Regression", col = "blue", lwd = 3)
+dev.off()
+
+# Build confusion matrix table
+cm <- confusionMatrix(log_preds, test_data$DEFAULT)
+cm_table <- as.data.frame(cm$table)
+
+# Save confusion matrix plot
+library(ggplot2)
+png("outputs/plots/confusion_matrix.png", width = 800, height = 600)
+ggplot(cm_table, aes(Prediction, Reference, fill = Freq)) +
+  geom_tile() +
+  geom_text(aes(label = Freq), size = 8, color = "white") +
+  scale_fill_gradient(low = "steelblue", high = "darkred") +
+  ggtitle("Confusion Matrix - Logistic Regression") +
+  theme_minimal()
+dev.off()
+
+# Plot & Save Target Variable Distribution
+png("outputs/plots/default_distribution.png", width = 800, height = 600)
+ggplot(refined_data, aes(DEFAULT)) +
+  geom_bar(fill = "darkblue") +
+  ggtitle("Distribution of Default (Target Variable)") +
+  theme_minimal()
+dev.off()
+
+# Plot & Save Coefficient Importance 
+coef_df <- data.frame(
+  Variable = names(coef(log_model)),
+  Coefficient = coef(log_model)
+)
+
+# Remove intercept
+coef_df <- coef_df[-1, ]
+coef_df$Importance <- abs(coef_df$Coefficient)
+
+png("outputs/plots/variable_importance.png", width = 800, height = 600)
+ggplot(coef_df, aes(x = reorder(Variable, Importance), y = Importance)) +
+  geom_bar(stat = "identity", fill = "purple") +
+  coord_flip() +
+  ggtitle("Variable Importance (Logistic Regression)") +
+  xlab("Variables") +
+  ylab("Importance (|Coefficient|)") +
+  theme_minimal()
+dev.off()
+
