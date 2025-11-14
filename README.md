@@ -4,14 +4,14 @@ This project builds a logistic regression model in R to predict whether a custom
 
 It demonstrates skills in:
 
-Data cleaning,
+Data cleaning
 
-Feature engineering,
+Feature engineering
 
-Scaling & preprocessing,
+Scaling & preprocessing
 
-Supervised machine learning,
+Supervised machine learning
 
-Model evaluation (Confusion Matrix, ROC, AUC),
+Model evaluation (Confusion Matrix, ROC, AUC)
 
 Predicting probability for new applicants
