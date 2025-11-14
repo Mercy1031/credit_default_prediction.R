@@ -125,7 +125,7 @@ This simulates real-world credit approval workflows.
 
 # Key Insights
 
-Payment history and income were the strongest predictors of default
+Higher installment rates and Longer loan duration increase default risk.
 
 Logistic regression provides a transparent and interpretable model
 
